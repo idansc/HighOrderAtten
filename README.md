@@ -78,8 +78,7 @@ th train.lua  \
         -start_from 0 \
         -dropout 5 \
         -save_checkpoint_every 3000 \
-        -eval 0 \
-        -co_atten_type Alternating_message \
+        -eval 0 \        
         -feature_type Residual \
         -hidden_size 512 \
         -hidden_last_size 8192 \
@@ -103,6 +102,15 @@ th train.lua  \
 
 ### Evaluation
 
+```
+th eval.lua -id XX -start_from XX \
+        -feature_type Residual \
+        -input_img_test_h5 XX/cocoqa_data_img_residule_scaled_test.h5 \
+        -input_ques_h5 data/vqa_data_prepro.h5 \
+        -input_json data/vqa_data_prepro.json \
+        -MC 1
+```
+* `-MC` true indicates evaluation on Multiple-Choice task
 ##### Evaluate using Pre-trained Model
 
 Soon
