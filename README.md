@@ -53,14 +53,14 @@ $ python download_model.py --download 'VGG'
 ```
 This will download the VGG_ILSVRC_19_layers model under `image_model` folder. To download the Deep Residual Model, you need to change the `VGG` to `Residual`.
 
-Then we are ready to extract the image features. Head back to the `data` folder and run
+Then we are ready to extract the image features. Head back to the `data` folder and run (You can change the `-gpuid`, `-backend` and `-batch_size` based on your gpu.)
 
 For **VGG** image feature:
 
 ```
 $ th prepro_img_vgg.lua -input_json ./vqa_data_prepro.json -image_root XXXX -cnn_proto ../image_model/VGG_ILSVRC_19_layers_deploy.prototxt -cnn_model ../image_model/VGG_ILSVRC_19_layers.caffemodel
 ```
-you can change the `-gpuid`, `-backend` and `-batch_size` based on your gpu.
+This will generate two output files: `vqa_data_img_vgg_train.h5 `, `vqa_data_img_vgg_test.h5 ` in `-out_path`. 
 
 For **Deep Residual** image feature:
 ```
