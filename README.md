@@ -66,7 +66,7 @@ For **Deep Residual** image feature:
 ```
 $ th prepro_img_residule.lua -input_json ./data/vqa_data_prepro.json  -image_root XXXX -residule_path ../image_model/resnet-200.t7
 ```
-This will generate two output files: `cocoqa_data_img_residule_scaled_train.h5`, `cocoqa_data_img_residule_scaled_test.h5` in `-out_path`. 
+This will generate two output files: `cocoqa_data_img_residule_train.h5`, `cocoqa_data_img_residule_test.h5` in `-out_path`. 
 
 ##### Train the model
 
@@ -88,9 +88,9 @@ th train.lua  \
         -learning_rate 4e-4 \
         -output_size 3001 \
         -learning_rate_decay_every 1200 \
-        -input_img_train_h5 XX/cocoqa_data_img_residule_scaled_train.h5 \
+        -input_img_train_h5 XX/cocoqa_data_img_residule_train.h5 \
         -input_ques_h5 data/vqa_data_prepro.h5 \
-        -input_json data/vqa_data_prepro.json \
+        -input_json data/vqa_data_prepro.json 
     
 ```
 * `-start_from` iteration to load model from
@@ -98,14 +98,14 @@ th train.lua  \
 
 ##### Note
 - Deep Residual Image Feature is 4 times larger than VGG feature, make sure you have enough RAM when you extract or load the features.
-- If you didn't have large RAM, replace the `require 'misc.DataLoader'` (Line 11 in `train.lua`) with `require 'misc.DataLoaderDisk`. The model will read the data directly from the hard disk (SSD prefered)
+- If you didn't have large RAM, replace the `require 'misc.DataLoader'` (Line 11 in `train.lua`) with `require 'misc.DataLoaderDisk`. The model will read the data directly from the hard disk *(SSD is prefered)*
 
 ### Evaluation
 
 ```
 th eval.lua -id XX -start_from XX \
         -feature_type Residual \
-        -input_img_test_h5 XX/cocoqa_data_img_residule_scaled_test.h5 \
+        -input_img_test_h5 XX/cocoqa_data_img_residule_test.h5 \
         -input_ques_h5 data/vqa_data_prepro.h5 \
         -input_json data/vqa_data_prepro.json \
         -MC 1
