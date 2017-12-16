@@ -113,7 +113,10 @@ th eval.lua -id XX -start_from XX \
 * `-MC` true indicates evaluation on Multiple-Choice task
 ##### Evaluate using Pre-trained Model
 
-Soon
+You can find The pre-trained model here (Make sure you provide the mcb files):
+https://www.dropbox.com/sh/u6s47tay8yx7p3i/AACndwMd6E_k_WPNS-Cc26Ega?dl=0
+
+
 
 ##### VQA on Single Image with Free Form Question
 
