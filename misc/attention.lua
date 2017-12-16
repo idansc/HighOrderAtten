@@ -1,12 +1,3 @@
---This file create visualization output, and should not be used for training. 
---[[ 
-You should add the following lines: 
-
-
-
-
-]]
-
 require 'nngraph'
 require 'nn'
 require 'cunn'
