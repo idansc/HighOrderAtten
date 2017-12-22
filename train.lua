@@ -1,10 +1,3 @@
-------------------------------------------------------------------------------
---  Hierarchical Question-Image Co-Attention for Visual Question Answering
---  J. Lu, J. Yang, D. Batra, and D. Parikh
---  https://arxiv.org/abs/1606.00061, 2016
---  if you have any question about the code, please contact jiasenlu@vt.edu
------------------------------------------------------------------------------
-
 require 'nn'
 require 'torch'
 require 'optim'
@@ -389,7 +382,7 @@ local learning_rate_history = {}
 local avg_loss = 0
 local avg_acc = 0
 local learning_rate = lmOpt.learning_rate
-
+local timer = torch.Timer()
 
 --state for optimization
 local optim_state = {}
